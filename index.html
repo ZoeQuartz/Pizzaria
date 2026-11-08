@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pizzaria do Bairro</title>
+</head>
+
+
+<body>
+
+    <div class="app">
+
+
+        <!-- MENU -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span>Pizzaria</span><span>do</span><span>Bairro</span>
+            </div>
+
+            <nav class="menu">
+
+                <a href="#novo" class="active">
+                    + Novo Pedido
+                </a>
+
+                <a href="#pedidos">
+                    Pedidos
+                </a>
+
+                <a href="#caixa">
+                    Caixa
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+
+        <!-- CONTEÚDO  -->
+
+        <main class="content">
+
+
+            <!-- NOVO PEDIDO -->
+
+            <section id="novo">
+
+                <div class="header">
+
+                    <h1>Novo Pedido</h1>
+
+                    <p>
+                        Registre uma nova venda.
+                    </p>
+
+                </div>
+
+
+                <div class="card form">
+                    <div class="row">
+                        <div class="form-group">
+                            <label>
+                                Cliente
+                            </label>
+                            <input type="text" placeholder="Nome do cliente">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Telefone
+                            </label>
+                            <input type="text" placeholder="(xx) 98765-4321">
+                        </div>
+                        <div class="form-group">
+                            <label>Endereço</label>
+                            <input type="text" placeholder="Ex: Rua das Flores, 123 - Centro.">
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                Tipo de pedido
+                            </label>
+
+                            <select>
+                                <option>Balcão</option>
+                                <option>Delivery</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Pedido</label>
+                        <textarea placeholder="Ex.: 1 Pizza Grande - 4 sabores: 1/4 Calabresa, 1/4 Portuguesa, 1/4 Margherita, 1/4 M&Ms."></textarea>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Valor</label>
+                            <input type="number" placeholder="R$ 0,00">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Pagamento</label>
+
+                            <select>
+                                <option>PIX</option>
+                                <option>Cartão</option>
+                                <option>Dinheiro</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="total-box">
+                        <strong>Total: R$ 0,00</strong>
+                        <button class="button red" onclick="finalizarPedido()">Finalizar Pedido</button>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!--PEDIDOS-->
+
+            <section id="pedidos" style="margin-top: 100px;">
+
+                <div class="header">
+
+                    <h1>Pedidos</h1>
+
+                    <p>
+                        Acompanhe os pedidos realizados.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+
+                    <!-- FILTROS -->
+
+                    <div class="filters">
+
+                        <input type="text" placeholder="Cliente">
+
+                        <input type="number" placeholder="Valor">
+
+                        <select>
+
+                            <option>
+                                Todos os status
+                            </option>
+                            <option>
+                                Em preparo
+                            </option>
+
+                            <option>
+                                Pronto
+                            </option>
+
+                            <option>
+                                Entregue
+                            </option>
+
+                        </select>
+
+                        <input type="time" title="Horário">
+
+                    </div>
+
+
+
+                    <!-- TABELA -->
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nº</th>
+                                <th>Cliente</th>
+                                <th>Horário</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>#025</td>
+                                <td>Maria</td>
+                                <td>19:42</td>
+                                <td>R$ 65,00</td>
+                                <td>
+                                    <span class="status status-delivered">
+                                        Entregue
+                                    </span>
+                                </td>
+                                <td><img id="edtIco" src="edit-05.png" alt=""></td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>#024</td>
+                                <td>João</td>
+                                <td>19:35</td>
+                                <td>R$ 77,00</td>
+                                <td>
+                                    <span class="status status-preparing">
+                                        Em preparo
+                                    </span>
+                                </td>
+                                <td><img id="edtIco" src="edit-05.png" alt=""></td>
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    #023
+                                </td>
+
+                                <td>
+                                    Balcão
+                                </td>
+
+                                <td>
+                                    19:21
+                                </td>
+
+                                <td>
+                                    R$ 57,00
+                                </td>
+
+                                <td>
+                                    <span class="status status-ready">
+                                        Pronto
+                                    </span>
+                                </td>
+                                <td><img id="edtIco" src="edit-05.png" alt=""></td>
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    #022
+                                </td>
+
+                                <td>
+                                    Carlos
+                                </td>
+
+                                <td>
+                                    19:05
+                                </td>
+
+                                <td>
+                                    R$ 82,00
+                                </td>
+
+                                <td>
+                                    <span class="status status-paid">
+                                        Pago
+                                    </span>
+                                </td>
+                                <td><img id="edtIco" src="edit-05.png" alt=""></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- CAIXA-->
+
+            <section id="caixa" style="margin-top: 100px;">
+
+                <div class="header">
+
+                    <h1>Caixa</h1>
+
+                    <p>
+                        Resumo das vendas do dia.
+                    </p>
+
+                </div>
+
+
+                <div class="summary">
+
+
+                    <div class="summary-card">
+
+                        <span>
+                            Vendas
+                        </span>
+                        <strong class="green-text">
+                            R$ 1.250,00
+                        </strong>
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span>
+                            Pedidos
+                        </span>
+
+                        <strong>
+                            27
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span>
+                            Ticket médio
+                        </span>
+
+                        <strong>
+                            R$ 46,30
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>
+                        Formas de pagamento
+                    </h2>
+
+                    <br>
+
+                    <p>
+                        PIX — R$ 700,00
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Cartão — R$ 400,00
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Dinheiro — R$ 150,00
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <script>
+
+        function finalizarPedido() {
+
+            alert(
+                "Pedido registrado com sucesso!"
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
